@@ -1,8 +1,4 @@
 # Title
 
-[link1](s)
-![Run_key]((AUB)NC.jpg)
-
-
-
-
+[link1](https://ucsd.com)
+[link2](some-thing.html)
