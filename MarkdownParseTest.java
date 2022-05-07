@@ -20,7 +20,7 @@ public class MarkdownParseTest {
 
     @Test
     public void TestFile1() throws IOException {
-        Path fileName = Path.of("TestFile1.md");
+        Path fileName = Path.of("C:/Users/kunwang1227/Documents/Github/CSE15L/markdown-parser/TestFile1.md");
         String content = Files.readString(fileName);
         ArrayList<String> links = MarkdownParse.getLinks(content);
         ArrayList<String> result = new ArrayList<String>();
@@ -30,7 +30,7 @@ public class MarkdownParseTest {
 
     @Test
     public void TestFile2() throws IOException {
-        Path file2Path = Path.of("TestFile2.md");
+        Path file2Path = Path.of("C:/Users/kunwang1227/Documents/Github/CSE15L/markdown-parser/TestFile2.md");
         String file2Content = Files.readString(file2Path);
         ArrayList<String> links = MarkdownParse.getLinks(file2Content);
         ArrayList<String> result = new ArrayList<String>();
@@ -41,7 +41,7 @@ public class MarkdownParseTest {
 
     @Test
     public void TestFile3() throws IOException {
-        Path file3Path = Path.of("TestFile3.md");
+        Path file3Path = Path.of("C:/Users/kunwang1227/Documents/Github/CSE15L/markdown-parser/TestFile3.md");
         String file3Content = Files.readString(file3Path);
         ArrayList<String> links = MarkdownParse.getLinks(file3Content);
         ArrayList<String> result = new ArrayList<String>();
