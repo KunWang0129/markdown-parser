@@ -23,10 +23,26 @@ public class MarkdownParse {
         // find the next [, then find the ], then find the (, then read link upto next )
         int currentIndex = 0;
         while(currentIndex < markdown.length()) {
+
             int openBracket = markdown.indexOf("[", currentIndex);
             int closeBracket = markdown.indexOf("]", openBracket);
             int openParen = markdown.indexOf("(", closeBracket);
             int closeParen = markdown.indexOf(")", openParen);
+
+            //checks number of backticks in the brackets
+            int index = openBracket;
+            int tickNum = 0;
+            while(index < markdown.length()){
+                if(markdown.indexOf('`',index) == -1){
+                    break;
+                }
+                else if(markdown.indexOf('`', index) > openBracket &&
+                markdown.indexOf("`",index) < openParen){
+                    tickNum++;
+                }
+                index = markdown.indexOf('`', index) + 1;
+            }
+
             //makes sure loop doesnot check previous indices
             if(closeParen < currentIndex){
                 break;
@@ -37,12 +53,13 @@ public class MarkdownParse {
             }
             //makes sure that this isn't an image reference
             else if((markdown.contains("!") 
-            && !(markdown.indexOf("!",currentIndex) == openBracket - 1))
-            || !markdown.contains("!")) {
+            && (markdown.indexOf("!",currentIndex) == openBracket - 1))) {
+            }
+            else if(tickNum%2 == 0){
                 toReturn.add(markdown.substring(openParen + 1, closeParen));
             }
-
             currentIndex = closeParen+1;
+
         }
         return toReturn;
     }

@@ -113,7 +113,6 @@ public class MarkdownParseTest {
 
     @Test
     public void MDPRTestSnippet2() throws IOException{
-        
         File file = new File("TestSnippet2.md");
         Scanner s = new Scanner(file);
         ArrayList<String> links = MarkdownParseReview.getLinks(s);
