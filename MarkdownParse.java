@@ -30,7 +30,7 @@ public class MarkdownParse {
             int closeParen = markdown.indexOf(")", openParen);
 
             //checks number of backticks in the brackets
-            int index = openBracket;
+            /*int index = openBracket;
             int tickNum = 0;
             while(index < markdown.length()){
                 if(markdown.indexOf('`',index) == -1){
@@ -41,7 +41,7 @@ public class MarkdownParse {
                     tickNum++;
                 }
                 index = markdown.indexOf('`', index) + 1;
-            }
+            }*/
 
             //makes sure loop doesnot check previous indices
             if(closeParen < currentIndex){
@@ -55,7 +55,7 @@ public class MarkdownParse {
             else if((markdown.contains("!") 
             && (markdown.indexOf("!",currentIndex) == openBracket - 1))) {
             }
-            else if(tickNum%2 == 0){
+            else{
                 toReturn.add(markdown.substring(openParen + 1, closeParen));
             }
             currentIndex = closeParen+1;
